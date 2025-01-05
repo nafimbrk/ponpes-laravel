@@ -109,3 +109,10 @@ body {
     width: 40px;
     background-color: #ffffff;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }

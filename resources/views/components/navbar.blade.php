@@ -17,10 +17,13 @@
                     <a href="/berita" class="nav-link active">Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/photo" class="nav-link active">Photo</a>
+                    <a href="/foto" class="nav-link active">Foto</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/video" class="nav-link active">Video</a>
+                    <a href="/videos" class="nav-link active">Video</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link active">About</a>
                 </li>
                 <li class="nav-item">
                     <a href="/kontak" class="nav-link active">Kontak</a>
@@ -29,12 +32,17 @@
 
             <div class="d-flex">
                 @auth
+                <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link active">Dashboard</a>
+                    </li>
+                </ul>
                     <form action="/logout" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-dark">Logout</button>
                     </form>
                 @else
-                    <a href="{{ route('register.create') }}" class="btn btn-danger">Register</a>
+                    <a href="{{ route('register.create') }}" class="btn btn-danger">Daftar</a>
                 @endauth
             </div>
         </div>

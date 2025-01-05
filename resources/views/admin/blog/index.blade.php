@@ -1,10 +1,10 @@
-<x-layouts>
+<x-layouts2>
     <section class="py-5" style="margin-top: 100px">
         <div class="container col-xxl-8">
 
-            <h4 class="fs-3 fw-bold mb-3">Halaman Blog Artikel</h4>
+            <h4 class="fs-3 fw-bold mb-3">Blog Artikel</h4>
 
-            <a href="{{ route('blog.create') }}" class="btn btn-primary">Buat Artikel</a>
+            <a href="{{ route('blog.create') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Buat Artikel</a>
 
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
@@ -13,8 +13,8 @@
                 </div>
             @endif
 
-            <div class="table-responsive py-3">
-                <table class="table table-bordered">
+            <div class="table-responsive my-3">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -39,16 +39,16 @@
                                     {{ $artikel->judul }}
                                 </td>
                                 <td>
-                                    {{ Str::limit($artikel->desc, 50) }}
+                                    {!! Str::limit($artikel->desc,50) !!}
                                 </td>
                                 <td>
                                     <a href="{{ route('blog.edit', $artikel->id) }}"
-                                        class="btn btn-warning me-1">Edit</a>
+                                        class="btn btn-warning me-1"><i class="bi bi-pencil"></i></a>
                                     <form action="{{ route('blog.destroy', $artikel->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         <button type="submit"
                                             onclick="return confirm('Apakah yakin ingin menghapus data?')"
-                                            class="btn btn-danger">Hapus</button>
+                                            class="btn btn-danger"><i class="bi bi-trash3"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -60,4 +60,4 @@
         </div>
 
     </section>
-</x-layouts>
+</x-layouts2>

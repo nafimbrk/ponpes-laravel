@@ -1,11 +1,11 @@
-<x-layouts>
+<x-layouts2>
     <section class="py-5" style="margin-top: 100px">
         <div class="container col-xxl-8">
 
-            <h4 class="fs-3 fw-bold mb-3">Halaman Video Kegiatan</h4>
+            <h4 class="fs-3 fw-bold mb-3">Video Kegiatan</h4>
 
             <a href="{{ route('blog.create') }}" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#tambahVideo">Tambah Video</a>
+                data-bs-target="#tambahVideo"><i class="bi bi-plus-lg"></i> Tambah Video</a>
 
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
@@ -26,8 +26,8 @@
                 </div>
             @endif
 
-            <div class="table-responsive py-3">
-                <table class="table table-bordered">
+            <div class="table-responsive my-3">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -55,12 +55,12 @@
                                 </td>
                                 <td>
                                     <a href="#" class="btn btn-warning me-1" data-bs-target="#editVideo{{ $item->id }}"
-                                         data-bs-toggle="modal">Edit</a>
+                                         data-bs-toggle="modal"><i class="bi bi-pencil"></i></a>
                                     <form action="{{ route('video.destroy', $item->id) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         <button type="submit" onclick="return confirm('Apakah yakin ingin menghapus data?')"
-                                            class="btn btn-danger">Hapus</button>
+                                            class="btn btn-danger"><i class="bi bi-trash3"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -89,7 +89,7 @@
                                                     <input type="text" name="youtube_code" id=""
                                                         class="form-control" value="{{ $item->youtube_code }}">
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                <button type="submit" class="btn btn-success">Update</button>
                                             </form>
                                         </div>
                                     </div>
@@ -98,6 +98,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $videos->links() }}
             </div>
         </div>
     </section>
@@ -120,10 +121,10 @@
                             <label for="">Youtube Code</label>
                             <input type="text" name="youtube_code" id="" class="form-control ">
                         </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-success">Simpan</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</x-layouts>
+</x-layouts2>

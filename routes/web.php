@@ -15,19 +15,27 @@ Route::get('/berita', [AppController::class, 'berita']);
 
 Route::get('/berita/{id}', [AppController::class, 'isiBerita']);
 
-Route::get('/foto', function () {
-    return view('foto.foto');
-});
+Route::get('/foto', [AppController::class, 'foto']);
+
+Route::get('/videos', [AppController::class, 'videos']);
 
 Route::get('/kontak', function () {
     return view('kontak');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/test', function () {
+    return view('test');
 });
 
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog')->middleware('auth');
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
@@ -46,6 +54,9 @@ Route::post('/video/store', [VideoController::class, 'store'])->name('video.stor
 Route::post('/video/update/{id}', [VideoController::class, 'update'])->name('video.update')->middleware('auth');
 Route::post('/video/destroy/{id}', [VideoController::class, 'destroy'])->name('video.destroy')->middleware('auth');
 
+Route::get('/register/success', [RegisterController::class, 'registerSuccess'])->name('register.success');
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index')->middleware('auth');
 Route::get('/register/create', [RegisterController::class, 'create'])->name('register.create');
-Route::get('/register/store', [RegisterController::class, 'store'])->name('register.store');
+Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
+// Route::get('/register/{id}', [RegisterController::class, 'show'])->name('register.show')->middleware('auth');
+Route::get('/export', [RegisterController::class, 'export'])->name('register.export')->middleware('auth');

@@ -1,4 +1,4 @@
-<x-layouts>
+<x-layouts2>
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
         <h4 class="fw-bold fs-3 mb-3">Halaman Edit Artikel</h4>
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group mb-4">
                 <label for="" class="form-label">Artikel Berita</label>
-                <textarea name="desc" id="summernote" class="form-control" cols="30" rows="10">
+                <textarea name="desc" id="" class="form-control" cols="30" rows="10">
                     {{ $artikel->desc }}
                 </textarea>
                 @error('desc')
@@ -39,8 +39,8 @@
                     </div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-success">Update</button>
             </form>
     </div>
     </section>
-</x-layouts>
+</x-layouts2>

@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/magnific.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" /> --}}
     <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    {{-- <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" /> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -935,9 +936,11 @@
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.js/" integrity="sha256-h+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> --}}
     <script src="{{ asset('assets/js/magnific.js') }}"></script>
-    <script src="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
-
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script> --}}
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script> --}}
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -971,8 +974,47 @@
                 }
             })
         })
-    </script>
 
+        // CKEDITOR.replace( 'desc' );
+
+        // var toolbarOptions = [
+        //         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        //         ['blockquote', 'code-block'],
+
+        //         [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        //         [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        //         [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+        //         [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+        //         [{ 'direction': 'rtl' }],                         // text direction
+
+        //         [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        //         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        //         [ 'link', 'image', 'video', 'formula' ],          // add's image support
+        //         [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        //         [{ 'font': [] }],
+        //         [{ 'align': [] }],
+
+        //         ['clean']                                         // remove formatting button
+        //     ];
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     if (document.getElementById('quill-editor-area')) {
+        //         var editor = new Quill('#quill-editor', {
+        //                 modules: {
+        //                     toolbar: toolbarOptions
+        //                 },
+        //             theme: 'snow'
+        //         });
+        //         var quillEditor = document.getElementById('quill-editor-area');
+        //         editor.on('text-change', function() {
+        //             quillEditor.value = editor.root.innerHTML;
+        //         });
+    
+        //         quillEditor.addEventListener('input', function() {
+        //             editor.root.innerHTML = quillEditor.value;
+        //         });
+        //     }
+        // });
+    </script>
 </body>
 
 </html>

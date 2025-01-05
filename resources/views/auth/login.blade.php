@@ -1,4 +1,4 @@
-<x-layouts>
+<x-layouts2>
     <section style="margin-top: 100px">
     <div class="container py-5 col-xxl-6">
         <h3 class="fw-bold fs-3 mb-3">Halaman Login Admin Pesantren</h3>
@@ -16,4 +16,4 @@
         </form>
     </div>
     </section>
-</x-layouts>
+</x-layouts2>

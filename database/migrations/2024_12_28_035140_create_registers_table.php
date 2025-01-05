@@ -40,7 +40,7 @@ return new class extends Migration
             $table->string('penghasilan_bulanan_ibu');
             $table->string('program_pesantren');
             $table->string('no_telp_ortu');
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

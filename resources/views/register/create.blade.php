@@ -1,9 +1,9 @@
-<x-layouts>
+<x-layouts2>
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
         <h4 class="fs-3 fw-bold mb-3">Halaman Register</h4>
         
-        <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('register.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group mb-4">
             <label for="" class="form-label">Nama Lengkap</label>
@@ -249,7 +249,7 @@
         
         <div class="form-group mb-4">
             <label for="" class="form-label">Pekerjaan Ibu</label>
-            <input type="date" name="pekerjaan_ibu" id="" class="form-control @error('pekerjaan_ibu') is-invalid @enderror" value="{{ old('pekerjaan_ibu') }}">
+            <input type="text" name="pekerjaan_ibu" id="" class="form-control @error('pekerjaan_ibu') is-invalid @enderror" value="{{ old('pekerjaan_ibu') }}">
             @error('pekerjaan_ibu')
                 <div class="invalid-feedback">
                     {{ $message }}   
@@ -314,9 +314,8 @@
             @enderror
         </div>
 
-        <a href="{{ route('blog') }}" class="btn btn-warning">Kembali</a>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-success">Simpan</button>
         </form>
     </div>
     </section>
-</x-layouts>
+</x-layouts2>

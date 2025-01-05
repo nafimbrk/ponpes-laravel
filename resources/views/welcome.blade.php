@@ -66,8 +66,7 @@
                             class="img-fluid mb-3 rounded-3">
                             <div class="konten-berita">
                                 <p class="mb-3 text-secondary">{{ $item->created_at->locale('in_id')->diffForHumans() }}</p>
-                                <h4 class="fw-bold fs-5 mb-3">{{ $item->judul }}</h4>
-                                <hp class="fw-normal mb-3">{{ Str::limit($item->desc, 100) }}</hp>
+                                <h4 class="fw-bold fs-5 mb-1">{{ $item->judul }}</h4>
                                 <a href="/berita/{{ $item->slug }}" class="text-decoration-none text-danger mb-3">Selengkapnya</a>
                             </div>
                     </div>
@@ -94,7 +93,7 @@
                     <p class="mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam numquam totam
                         at dicta quidem,
                         veniam nemo repellat. Omnis, consequatur dolores?</p>
-                    <button class="btn btn-outline-danger">Register</button>
+                    <a href="{{ route('register.create') }}" class="btn btn-outline-danger">Daftar</a>
                 </div>
                 <div class="col-lg-6">
                     <img src="{{ asset('assets/images/islamic-boarding-school-students-are-reading-koran-courtyard-mosque_368093-3579.jpeg') }}"
@@ -173,10 +172,6 @@
             </div>
             <img src="{{ asset('assets/images/v-hlMjYlPGvrU-unsplash.jpeg') }}" alt=""
                 class="img-fluid py-5">
-
-            <div class="text-center">
-                <a href="" class="btn btn-outline-danger">Fasilitas Lainnya</a>
-            </div>
         </div>
     </section>
 

@@ -33,4 +33,16 @@ class AppController extends Controller
             'artikel' => $artikel
         ]);
     }
+
+    public function foto()
+    {
+        $photos = Photo::paginate(8);
+        return view('foto.foto', compact('photos'));
+    }
+
+    public function videos()
+    {
+        $videos = Video::paginate(3);
+        return view('videos.videos', compact('videos'));
+    }
 }

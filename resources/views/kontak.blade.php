@@ -12,13 +12,13 @@
     <section id="kontak" class="py-5">
         <div class="container py-5">
             <div class="header-kontak text-center">
-                <h2 class="fw-bold fs-4">Kontak Kami</h2>
+                <h2 class="fw-bold fs-4 mb-2">Kontak Kami</h2>
                 <p class="text-muted">Jika Anda memiliki pertanyaan atau membutuhkan informasi lebih lanjut, silakan hubungi kami melalui formulir di bawah ini.</p>
             </div>
 
             <div class="row py-5">
                 <div class="col-lg-6 mb-4" data-aos="fade-right">
-                    <h5 class="fw-bold">Informasi Kontak</h5>
+                    <h5 class="fw-bold mb-3">Informasi Kontak</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="bi bi-geo-alt-fill me-2"></i>
@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <h5 class="fw-bold">Formulir Kontak</h5>
+                    <h5 class="fw-bold mb-3">Formulir Kontak</h5>
                     <form action="/kontak/kirim" method="POST">
                         @csrf
                         <div class="mb-3">
