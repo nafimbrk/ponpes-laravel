@@ -5,6 +5,7 @@
         
         <form action="{{ route('blog.update', $artikel->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="form-group mb-4">
                 <label for="" class="form-label">Masukkan Judul Kegiatan</label>
                 <input type="text" name="judul" id="" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $artikel->judul) }}">

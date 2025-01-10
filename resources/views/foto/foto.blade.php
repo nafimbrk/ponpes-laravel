@@ -1,8 +1,8 @@
 <x-layouts>
-    <section id="foto" style="margin-top: 100px;" class="section-foto" data-aos="zoom-in-up">
+    <section id="foto" style="margin-top: 100px;" data-aos="zoom-in-up">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center mt-4">
                     <h5 class="fw-bold fs-4 text-dark">Foto Kegiatan</h5>
                 </div>
             </div>

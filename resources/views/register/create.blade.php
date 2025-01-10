@@ -1,9 +1,9 @@
 <x-layouts2>
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
-        <h4 class="fs-3 fw-bold mb-3">Halaman Register</h4>
+        <h4 class="fs-3 fw-bold mb-3">Pendaftaran</h4>
         
-        <form action="{{ route('register.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('register.store') }}" method="POST">
         @csrf
         <div class="form-group mb-4">
             <label for="" class="form-label">Nama Lengkap</label>

@@ -155,9 +155,9 @@
             <div class="row">
                 @foreach ($photos as $photo)
                 <div class="col-lg-3 col-md-6 col mb-2-6">
-                    <a href="{{ asset('storage/photo/' . $photo->image) }}" class="image-link">
+                    {{-- <a class="image-link" href="{{ asset('storage/photo/' . $photo->image) }}"> --}}
                         <img src="{{ asset('storage/photo/' . $photo->image) }}" alt="" class="img-fluid">
-                    </a>
+                    {{-- </a> --}}
                     <p class="mt-1">{{ $photo->judul }}</p>
                 </div>
                 @endforeach

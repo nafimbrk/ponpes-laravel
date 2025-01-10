@@ -18,16 +18,20 @@
                 <div class="col-12 col-md-3 mb-3">
                     <h5 class="fw-bold mb-3">Follow Kami</h5>
                     <div class="d-flex mb-3">
-                        <a href="" target="_blank" class="text-decoration-none text-dark">
-                            <i class="fa-brands fa-x-twitter pe-2 fs-5"></i>
+                        <a href="https://www.facebook.com/" target="_blank" class="text-decoration-none text-dark me-3">
+                            <img src="{{ asset('assets/logo/facebook.webp') }}" alt="Facebook" width="24" height="24" style="border-radius: 4px">
                         </a>
-                        <a href="" target="_blank" class="text-decoration-none text-dark">
-                            <i class="fa-brands fa-tiktok pe-2 fs-5"></i>
+                        <a href="https://www.tiktok.com/" target="_blank" class="text-decoration-none text-dark me-3">
+                            <img src="{{ asset('assets/logo/instagram.webp') }}" alt="TikTok" width="30" height="30">
                         </a>
-                        <a href="" target="_blank" class="text-decoration-none text-dark">
-                            <i class="fa-brands fa-instagram fs-5"></i>
+                        <a href="https://www.instagram.com/" target="_blank" class="text-decoration-none text-dark me-3">
+                            <img src="{{ asset('assets/logo/tiktok.webp') }}" alt="Instagram" width="24" height="24" style="border-radius: 4px">
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="text-decoration-none text-dark">
+                            <img src="{{ asset('assets/logo/youtube.webp') }}" alt="YouTube" width="40" height="40">
                         </a>
                     </div>
+                    
                 </div>
 
                 <div class="col-12 col-md-3 mb-3">
@@ -46,21 +50,21 @@
                     <h5 class="font-inter fw-bold mb-3">Alamat Sekolah</h5>
                     <p>Jl. Anjay hero mania saya Kec. Jombang Kab. Jombang Jawa Selatan</p>
                 </div>
-
             </div>
         </footer>
     </div>
-</section>
 
-<section class="bg-light border-top" data-aos="zoom-out">
-    <div class="container py-4">
-        <div class="d-flex justify-content-between">
-            <div>Pesantren Al-hijrah</div>
-            <div class="d-flex">
-                <p class="me-4">Syarat & Ketentuan</p>
-                <p>
-                    <a href="/kebijakan" class="text-decoration-none text-dark">Kebijakan Privacy</a>
-                </p>
+    <!-- Footer bawah -->
+    <div class="bg-light border-top py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <div>Pesantren Al-hijrah</div>
+                <div class="d-flex">
+                    <p class="me-4">Syarat & Ketentuan</p>
+                    <p>
+                        <a href="/kebijakan" class="text-decoration-none text-dark">Kebijakan Privacy</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

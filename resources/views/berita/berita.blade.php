@@ -11,7 +11,7 @@
                         <img src="{{ asset('storage/artikel/' . $item->image) }}" alt=""
                         class="img-fluid mb-3 rounded-3">
                             <div class="konten-berita mb-3">
-                                <p class="mb-3 text-secondary">{{ $item->created_at->locale('in_id')->diffForHumans() }}</p>
+                                <p class="mb-3 text-secondary">{{ $item->created_at->format('d/m/Y') }}</p>
                             <h4 class="fw-bold fs-5 mb-1">{{ $item->judul }}</h4>
                             <a href="/berita/{{ $item->slug }}" class="text-decoration-none text-danger">Selengkapnya</a>
                         </div>

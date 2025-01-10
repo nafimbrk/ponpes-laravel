@@ -58,5 +58,8 @@ Route::get('/register/success', [RegisterController::class, 'registerSuccess'])-
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index')->middleware('auth');
 Route::get('/register/create', [RegisterController::class, 'create'])->name('register.create');
 Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
-// Route::get('/register/{id}', [RegisterController::class, 'show'])->name('register.show')->middleware('auth');
+Route::get('/register/edit/{id}', [RegisterController::class, 'edit'])->name('register.edit');
+Route::put('/register/update/{id}', [RegisterController::class, 'update'])->name('register.update');
+Route::delete('/register/destroy/{id}', [RegisterController::class, 'destroy'])->name('register.destroy');
+Route::get('/register/{id}', [RegisterController::class, 'show'])->name('register.show')->middleware('auth');
 Route::get('/export', [RegisterController::class, 'export'])->name('register.export')->middleware('auth');

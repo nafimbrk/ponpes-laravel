@@ -937,7 +937,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.js/" integrity="sha256-h+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> --}}
-    <script src="{{ asset('assets/js/magnific.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/magnific.js') }}"></script> --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script> --}}
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script> --}}
@@ -961,19 +961,19 @@
 
         AOS.init();
 
-        $(document).ready(function() {
-            $('.image-link').magnificPopup({
-                type: 'image',
-                retina: {
-                    ratio: 1,
-                    replaceSrc: function(item, ratio) {
-                        return item.src.replace(/\.\w+4/, function(m) {
-                            return '@2x' + m
-                        })
-                    }
-                }
-            })
-        })
+        // $(document).ready(function() {
+        //     $('.image-link').magnificPopup({
+        //         type: 'image',
+        //         retina: {
+        //             ratio: 1,
+        //             replaceSrc: function(item, ratio) {
+        //                 return item.src.replace(/\.\w+4/, function(m) {
+        //                     return '@2x' + m
+        //                 })
+        //             }
+        //         }
+        //     })
+        // })
 
         // CKEDITOR.replace( 'desc' );
 
