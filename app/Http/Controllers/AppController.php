@@ -28,7 +28,7 @@ class AppController extends Controller
 
     public function isiBerita($slug)
     {
-        $artikel = Blog::where('slug', $slug)->first();
+        $artikel = Blog::where('slug', $slug)->firstOrFail();
         return view('berita.isi-berita', [
             'artikel' => $artikel
         ]);

@@ -13,7 +13,7 @@ Route::get('/', [AppController::class, 'index']);
 
 Route::get('/berita', [AppController::class, 'berita']);
 
-Route::get('/berita/{id}', [AppController::class, 'isiBerita']);
+Route::get('/berita/{slug}', [AppController::class, 'isiBerita']);
 
 Route::get('/foto', [AppController::class, 'foto']);
 
@@ -41,7 +41,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog')->middleware(
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
 Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit')->middleware('auth');
-Route::post('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update')->middleware('auth');
+Route::put('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update')->middleware('auth');
 Route::post('/blog/destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy')->middleware('auth');
 
 Route::get('/photo', [PhotoController::class, 'index'])->name('photo')->middleware('auth');
