@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts2 title="Dashboard Foto">
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
           
@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>
-                                <img src="{{ asset('storage/photo/' . $item->image) }}" alt="" height="100" width="200">
+                                <img src="{{ asset('storage/photo/' . $item->image) }}" alt="" height="100" width="200" class="rounded">
                             </td>
                             <td>
                                 {{ $item->judul }}
@@ -72,7 +72,7 @@
                                             <div class="form-group mb-3">
                                                 <label for="">Pilih Photo</label>
                                                 <div class="col-lg-4 mb-3">
-                                                    <img src="{{ asset('storage/photo/' . $item->image) }}" alt="Foto Lama" height="150">
+                                                    <img src="{{ asset('storage/photo/' . $item->image) }}" alt="Foto Lama" height="150" class="rounded">
                                                 </div>
                                                 <input type="hidden" name="old_image" value="{{ $item->image }}">
                                                 <input type="file" name="image" class="form-control">
@@ -93,7 +93,9 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $photos->links() }}
+            <div class="d-flex justify-content-md-end justify-content-center mt-5">
+                {{ $photos->links() }}
+            </div>
         </div>
     </div>
     </section>

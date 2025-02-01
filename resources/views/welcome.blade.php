@@ -1,20 +1,21 @@
 
 
-<x-layouts>
+<x-layouts title="Beranda">
 
     <section id="hero" class="px-0">
         <div class="container text-center text-white">
             <div class="hero-title" data-aos="fade-up">
-                <div class="hero-text">Selamat Datang <br> Di Pesantren Al Hijrah</div>
+                <div class="hero-text">Selamat Datang <br> Di Pesantren Falahul Muhibbin</div>
                 <h4 class="fw-semibold fs-5">Pondok Pesantren Modern dengan Konsep Kaffah</h4>
             </div>
         </div>
     </section>
 
-    <section id="program" style="margin-top: -30px">
+    <section id="program" style="margin-top: 60px; rounded: -30px;">
         <div class="container col-xxl-9">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col mb-2" data-aos="flip-left">
+                <!-- Kolom 1 -->
+                <div class="col-lg-3 col-md-6 col-6 mb-4" data-aos="flip-left">
                     <div class="bg-white rounded-3 shadow p-3 d-flex justify-content-between align-items-center">
                         <div>
                             <p>Pendidikan <br> Berkualitas</p>
@@ -22,36 +23,37 @@
                         <img src="{{ asset('assets/icons/ic-book.png') }}" alt="" height="55" width="55">
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col mb-2" data-aos="flip-left">
+                <!-- Kolom 2 -->
+                <div class="col-lg-3 col-md-6 col-6 mb-4" data-aos="flip-left">
                     <div class="bg-white rounded-3 shadow p-3 d-flex justify-content-between align-items-center">
                         <div>
                             <p>Pendidikan <br> Berakhlak</p>
                         </div>
-                        <img src="{{ asset('assets/icons/ic-globe.png') }}" alt="" height="55"
-                            width="55">
+                        <img src="{{ asset('assets/icons/ic-globe.png') }}" alt="" height="55" width="55">
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col mb-2" data-aos="flip-left">
+                <!-- Kolom 3 -->
+                <div class="col-lg-3 col-md-6 col-6 mb-4" data-aos="flip-left">
                     <div class="bg-white rounded-3 shadow p-3 d-flex justify-content-between align-items-center">
                         <div>
                             <p>Pendidikan <br> Muammalah</p>
                         </div>
-                        <img src="{{ asset('assets/icons/ic-neraca.png') }}" alt="" height="55"
-                            width="55">
+                        <img src="{{ asset('assets/icons/ic-neraca.png') }}" alt="" height="55" width="55">
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col mb-2" data-aos="flip-left">
+                <!-- Kolom 4 -->
+                <div class="col-lg-3 col-md-6 col-6 mb-4" data-aos="flip-left">
                     <div class="bg-white rounded-3 shadow p-3 d-flex justify-content-between align-items-center">
                         <div>
                             <p>Pendidikan <br> Teknologi</p>
                         </div>
-                        <img src="{{ asset('assets/icons/ic-komputer.png') }}" alt="" height="55"
-                            width="55">
+                        <img src="{{ asset('assets/icons/ic-komputer.png') }}" alt="" height="55" width="55">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
 
     <section id="berita" class="py-5">
         <div class="container py-5">
@@ -60,7 +62,7 @@
             </div>
             <div class="row py-5" data-aos="flip-up">
                 @foreach ($artikels as $item)
-                <div class="col-lg-4">
+                <div class="col-lg-4 mb-5">
                     <div class="card border-0">
                         <img src="{{ asset('storage/artikel/' . $item->image) }}" alt=""
                             class="img-fluid mb-3 rounded-3">
@@ -86,14 +88,12 @@
             <div class="row d-flex align-items-center">
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center mb-3">
-                        <div class="stripe me-"></div>
+                        <div class="stripe me-3"></div>
                         <h5 class="fw-bold fs-4">Daftar Santri</h5>
                     </div>
-                    <h1 class="fw-bold fs-6 mb-2">Gabung bersama kami, mewujudkan generasi robbani</h1>
-                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam numquam totam
-                        at dicta quidem,
-                        veniam nemo repellat. Omnis, consequatur dolores?</p>
-                    <a href="{{ route('register.create') }}" class="btn btn-outline-danger">Daftar</a>
+                    <h1 class="fw-bold fs-5 mb-2">Gabung bersama kami, mewujudkan generasi robbani</h1>
+                    <p class="mb-3">Pesantren Falahul Muhibbin merupakan pesantren terbaik di Jawa Timur, dengan meluluskan santri dan menjadi ustadz terkemuka mendakwahkan di pelosok nusantara</p>
+                    <a href="{{ route('register.create') }}" class="btn btn-outline-danger mb-4">Daftar</a>
                 </div>
                 <div class="col-lg-6">
                     <img src="{{ asset('assets/images/islamic-boarding-school-students-are-reading-koran-courtyard-mosque_368093-3579.jpeg') }}"
@@ -103,7 +103,7 @@
         </div>
     </section>
 
-    <section id="video" class="py-5">
+    <section id="video" class="py-5 bg-light">
         <div class="container py-5">
             <div class="d-flex justify-content-center align-items-center" data-aos="zoom-in">
                 <iframe width="560" height="315"
@@ -123,7 +123,7 @@
 
             <div class="row py-5" data-aos="zoom-in">
                 @foreach ($videos as $item)                   
-                <div class="col-lg-4">
+                <div class="col-lg-4 mb-4">
                     <iframe width="100%" height="215"
                     src="https://www.youtube.com/embed/{{ $item->youtube_code }}"
                     title="YouTube video player" frameborder="0"
@@ -140,40 +140,88 @@
         </div>
     </section>
 
-    <section id="foto" class="section-foto parallax">
-        <div class="container" data-aos="zoom-in-up">
-            <div class="d-flex justify-content-between align-items-center mb-5">
+    <section id="foto" class="section-foto parallax bg-light">
+        <div class="container py-5" data-aos="zoom-in-up">
+            <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="d-flex align-items-center">
-                    <div class="stripe-putih me-2"></div>
-                    <h5 class="fw-bold text-white">Foto Kegiatan</h5>
+                    <div class="stripe-hitam me-2"></div>
+                    <h5 class="fw-bold text-black">Foto Kegiatan</h5>
                 </div>
                 <div>
-                    <a href="/foto" class="btn btn-outline-light">Foto lainnya</a>
+                    <a href="/foto" class="btn btn-outline-dark">Foto lainnya</a>
                 </div>
             </div>
-
+    
             <div class="row">
                 @foreach ($photos as $photo)
-                <div class="col-lg-3 col-md-6 col mb-2-6">
-                    {{-- <a class="image-link" href="{{ asset('storage/photo/' . $photo->image) }}"> --}}
-                        <img src="{{ asset('storage/photo/' . $photo->image) }}" alt="" class="img-fluid">
-                    {{-- </a> --}}
-                    <p class="mt-1">{{ $photo->judul }}</p>
+                <div class="col-lg-3 col-md-6 col-6">
+                    <img src="{{ asset('storage/photo/' . $photo->image) }}" alt="" class="img-fluid">
+                    <p class="mt-1 text-white">{{ $photo->judul }}</p>
                 </div>
                 @endforeach
             </div>
         </div>
     </section>
+    
 
-    <section id="fasilitas" class="py-5" data-aos="zoom-in-up">
+    <section id="fasilitas" class="py-5">
         <div class="container py-5">
-            <div class="text-center">
+            <div class="text-center mb-4">
                 <h3 class="fw-bold">Fasilitas Pesantren</h3>
             </div>
-            <img src="{{ asset('assets/images/v-hlMjYlPGvrU-unsplash.jpeg') }}" alt=""
-                class="img-fluid py-5">
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div>
+                        <img src="assets/yoiki/fasilitas/fasilitas3.webp" class="card-img-top rounded" alt="Masjid">
+                        <div class="mt-3">
+                            <h5 class="card-title text-center">Masjid</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div>
+                        <img src="assets/yoiki/fasilitas/fasilitas2.webp" class="card-img-top rounded" alt="Asrama Santri">
+                        <div class="mt-3">
+                            <h5 class="card-title text-center">Asrama Santri</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div>
+                        <img src="assets/yoiki/fasilitas/fasilitas3.webp" class="card-img-top rounded" alt="Ruang Kelas">
+                        <div class="mt-3">
+                            <h5 class="card-title text-center">Ruang Kelas</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div>
+                        <img src="assets/yoiki/fasilitas/fasilitas4.webp" class="card-img-top rounded" alt="Perpustakaan">
+                        <div class="mt-3">
+                            <h5 class="card-title text-center">Perpustakaan</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div>
+                        <img src="assets/yoiki/fasilitas/fasilitas5.webp" class="card-img-top rounded" alt="Lapangan Olahraga">
+                        <div class="mt-3">
+                            <h5 class="card-title text-center">Lapangan Olahraga</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div>
+                        <img src="assets/yoiki/fasilitas/fasilitas6.webp" class="card-img-top rounded" alt="Ruang Makan">
+                        <div class="mt-3">
+                            <h5 class="card-title text-center">Ruang Makan</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    
 
 </x-layouts>
     

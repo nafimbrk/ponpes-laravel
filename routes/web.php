@@ -57,7 +57,9 @@ Route::post('/video/destroy/{id}', [VideoController::class, 'destroy'])->name('v
 Route::get('/register/success', [RegisterController::class, 'registerSuccess'])->name('register.success');
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index')->middleware('auth');
 Route::get('/register/create', [RegisterController::class, 'create'])->name('register.create');
+Route::get('/register/user/create', [RegisterController::class, 'createUser'])->name('register.create.user');
 Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
+Route::post('/register/user/store', [RegisterController::class, 'storeUser'])->name('register.store.user');
 Route::get('/register/edit/{id}', [RegisterController::class, 'edit'])->name('register.edit');
 Route::put('/register/update/{id}', [RegisterController::class, 'update'])->name('register.update');
 Route::delete('/register/destroy/{id}', [RegisterController::class, 'destroy'])->name('register.destroy');

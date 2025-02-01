@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts2 title="Create Blog">
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
         <h4 class="fw-bold fs-3 mb-3">Buat Artikel</h4>

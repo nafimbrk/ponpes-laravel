@@ -2,7 +2,7 @@
     {{ Request::segment(1) == '' ? 'navbar-dark' : 'bg-white shadow navbar-light' }}">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('assets/icons/ic-logo.png') }}" alt="" height="55" width="55">
+            <img src="{{ asset('assets/yoiki/logo.webp') }}" alt="" height="55" width="55">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
                 </li>
             </ul>
 
-            <div class="d-flex">
+            <div class="button-navbar d-flex">
                 @auth
                 <ul class="navbar-nav me-3 mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -39,10 +39,10 @@
                 </ul>
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-dark">Logout</button>
+                        <button type="submit" class="btn btn-danger logout">Logout</button>
                     </form>
                 @else
-                    <a href="{{ route('register.create') }}" class="btn btn-danger">Daftar</a>
+                    <a href="{{ route('register.create.user') }}" class="btn btn-danger">Daftar</a>
                 @endauth
             </div>
         </div>
@@ -77,10 +77,53 @@
     justify-content: space-between;
     flex-wrap: nowrap;
 }
+
+@media (max-width: 991px) { /* Berlaku untuk layar mobile */
+    .navbar-collapse {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-nav {
+        flex-grow: 1; /* Biar navbar menyesuaikan ukuran */
+    }
+
+    .d-flex {
+        margin-left: auto; /* Supaya tetap di kanan */
+        display: flex;
+        align-items: center;
+    }
+
+    .d-flex .btn {
+        white-space: nowrap; /* Mencegah tombol turun ke bawah */
+    }
+
+}
+
 #mainNavbar {
     /* outline: 2px solid red; */
 }
+    
+    @media (max-width: 991px) { /* Berlaku untuk layar mobile */
+    .d-flex {
+        flex-direction: column; /* Membalikkan urutan elemen */
+        align-items: flex-start; /* Supaya rata kiri */
+        gap: 5px; /* Beri jarak antara Dashboard dan Logout */
+    }
 
+    .d-flex form {
+        width: 100%; /* Agar tombol logout tetap rapi */
+    }
+
+    .button-navbar {
+        margin-bottom: 150px;
+    }
+
+    .logout {
+        margin-left: 16px;
+    }
+}
 
 </style>
 

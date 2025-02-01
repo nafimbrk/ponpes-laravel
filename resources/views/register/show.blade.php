@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts2 title="Detail Register">
     <section class="py-5" style="margin-top: 100px">
         <div class="container col-xxl-8">
             <h4 class="fs-3 fw-bold mb-3">Detail Data Register Santri</h4>

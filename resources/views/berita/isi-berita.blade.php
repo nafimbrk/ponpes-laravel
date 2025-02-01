@@ -1,4 +1,4 @@
-<x-layouts>
+<x-layouts title="Berita">
     <section id="detail" style="margin-top: 100px" class="py-5">
         <div class="container col-xxl-8 w-50">
             <div class="mb-3 link-berita">

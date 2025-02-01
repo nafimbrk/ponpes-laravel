@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts2 title="Dashboard Blog">
     <section class="py-5" style="margin-top: 100px">
         <div class="container col-xxl-8">
 
@@ -33,7 +33,7 @@
                                 <td>{{ $no++ }}</td>
                                 <td>
                                     <img src="{{ asset('storage/artikel/' . $artikel->image) }}" alt=""
-                                        height="100" width="200">
+                                        height="100" width="200" class="rounded">
                                 </td>
                                 <td>
                                     {{ $artikel->judul }}
@@ -55,7 +55,9 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $artikels->links() }}
+                <div class="d-flex justify-content-md-end justify-content-center mt-5">
+                    {{ $artikels->links() }}
+                </div>
             </div>
         </div>
 

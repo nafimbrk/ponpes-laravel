@@ -1,4 +1,4 @@
-<x-layouts>
+<x-layouts title="Berita">
     <section id="berita" style="margin-top: 100px" class="py-5">
         <div class="container py-5">
             <div class="header-berita text-center">
@@ -20,9 +20,12 @@
                 @endforeach
             </div>
             
-            <div class="footer-berita text-center">
-                {{ $artikels->links() }}
-            </div>
+            <div class="d-flex justify-content-md-center justify-content-center">
+    {{ $artikels->links() }}
+</div>
+
+            
+            
         </div>
     </section>
 </x-layouts>    

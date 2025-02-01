@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts title="Create Register">
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
         <h4 class="fs-3 fw-bold mb-3">Pendaftaran</h4>
@@ -318,4 +318,4 @@
         </form>
     </div>
     </section>
-</x-layouts2>
+</x-layouts>

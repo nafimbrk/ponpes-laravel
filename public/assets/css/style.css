@@ -37,7 +37,7 @@ body {
 }
 
 #hero {
-    background-image: url("../../assets/images/il-photo-01.png");
+    background-image: url("../../assets/yoiki/utama.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -76,19 +76,19 @@ body {
 
 .stripe {
     height: 5px;
-    height: 40px;
+    width: 40px;
     background-color: #bd0001;
 }
 
-#video {
-    background-image: url("../../assets/images/il-bg-video.png");
+/* #video {
+    background-image: url("../../assets/images/il-bg-video.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 500px;
-}
+} */
 
-.section-foto {
+/* .section-foto {
     background-attachment: fixed;
     background-position: top;
     background-size: cover;
@@ -98,16 +98,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.parallax {
-    background-image: url("../../assets/images/haidan-RhkbHU14MoA-unsplash.jpeg");
-}
+/* .parallax {
+    background-image: url("../../assets/images/haidan-RhkbHU14MoA-unsplash.webp");
+} */
 
-.stripe-putih {
+.stripe-hitam {
     height: 5px;
     width: 40px;
-    background-color: #ffffff;
+    background-color: black;
 }
 
 .center {

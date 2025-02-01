@@ -1,5 +1,5 @@
-<x-layouts>
-    <section id="video_youtube" style="margin-top: 100px; min-height: 100vh;" data-aos="zoom-in">
+<x-layouts title="Video">
+    <section id="video_youtube" style="margin-top:200px;" data-aos="zoom-in">
         <div class="container">
             <div class="text-center">
                 <h2 class="fw-bold fs-4">Video Kegiatan Pondok Pesantren</h2>
@@ -7,7 +7,7 @@
 
             <div class="row py-5">
                 @foreach ($videos as $item)                   
-                <div class="col-lg-4">
+                <div class="col-lg-4 mb-4">
                     <iframe width="100%" height="215"
                     src="https://www.youtube.com/embed/{{ $item->youtube_code }}"
                     title="YouTube video player" frameborder="0"
@@ -16,7 +16,10 @@
                 </div>
                 @endforeach
             </div>
-            {{ $videos->links() }}
+            
+            <div class="d-flex justify-content-md-center justify-content-center" style="margin-bottom: 80px">
+                {{ $videos->links() }}
+            </div>
         </div>
     </section>
 </x-layouts>

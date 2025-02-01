@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts2 title="Dashboard Video">
     <section class="py-5" style="margin-top: 100px">
         <div class="container col-xxl-8">
 
@@ -51,7 +51,7 @@
                                         src="https://www.youtube.com/embed/{{ $item->youtube_code }}"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded"></iframe>
                                 </td>
                                 <td>
                                     <a href="#" class="btn btn-warning me-1" data-bs-target="#editVideo{{ $item->id }}"
@@ -98,7 +98,9 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $videos->links() }}
+                <div class="d-flex justify-content-md-end justify-content-center mt-5">
+                    {{ $videos->links() }}
+                </div>
             </div>
         </div>
     </section>

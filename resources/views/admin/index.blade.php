@@ -1,11 +1,11 @@
-<x-layouts2>
+<x-layouts2 title="Dashboard">
     <section style="margin-top: 100px">
         <div class="container col-xxl-8 py-5">
-            <h3 class="fw-bold fs-3 mb-2">Dashboard Admin</h3>
+            <h3 class="fw-bold fs-3 mb-4">Dashboard Admin</h3>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="card shadow-sm rounded-3 border-0">
-                        <img src="{{ asset('assets/images/il-berita-01.png')}}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/dashboard.webp')}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Blog Artikel</h5>
                             <p class="card-text mb-2">Atur dan Kelola Artikel Kegiatan Pesantren</p>
@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="card shadow-sm rounded-3 border-0">
-                        <img src="{{ asset('assets/images/il-berita-03.png')}}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/dashboard.webp')}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Photo Kegiatan</h5>
                             <p class="card-text mb-2">Atur dan Kelola Photo Kegiatan Pesantren</p>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="card shadow-sm rounded-3 border-0">
-                        <img src="{{ asset('assets/images/il-berita-03.png')}}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/dashboard.webp')}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Video Kegiatan</h5>
                             <p class="card-text mb-2">Atur dan Kelola Video Kegiatan Pesantren</p>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="card shadow-sm rounded-3 border-0">
-                        <img src="{{ asset('assets/images/il-berita-03.png')}}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/dashboard.webp')}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Data Register</h5>
                             <p class="card-text mb-2">Atur dan Kelola Data Pendaftaran Santri</p>

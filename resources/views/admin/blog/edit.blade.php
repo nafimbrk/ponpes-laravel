@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts2 title="Edit Blog">
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
         <h4 class="fw-bold fs-3 mb-3">Halaman Edit Artikel</h4>
@@ -20,7 +20,7 @@
                 <label for="" class="form-label">Pilih Photo Kegiatan</label>
                 <input type="hidden" name="old_image" id="" value="{{ $artikel->image }}">
                 <div>
-                    <img src="{{ asset('storage/artikel/' . $artikel->image) }}" class= "col-lg-4" alt="">
+                    <img src="{{ asset('storage/artikel/' . $artikel->image) }}" class= "col-lg-4 rounded" alt="">
                 </div>
                 <input type="file" name="image" id="" class="form-control @error('image') is-invalid @enderror">
                 @error('image')

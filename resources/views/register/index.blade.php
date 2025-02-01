@@ -1,4 +1,4 @@
-<x-layouts2>
+<x-layouts2 title="Dashboard Register">
     <section class="py-5" style="margin-top: 100px">
         <div class="container col-xxl-8">
             <h4 class="fs-3 fw-bold mb-3">Data Register Santri</h4>
@@ -45,7 +45,7 @@
                                     {{ date('d-m-Y', strtotime($register->tanggal_lahir)) }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('register.show', $register->id) }}"><i class="bi bi-eye btn btn-success"></i></a>
+                                    <a href="{{ route('register.show', $register->id) }}"><i class="bi bi-eye btn btn-success mb-2"></i></a>
                                     <a href="{{ route('register.edit', $register->id) }}" class="btn btn-warning me-1"><i class="bi bi-pencil"></i></a>
                                     <form action="{{ route('register.destroy', $register->id) }}" method="POST" class="d-inline">
                                         @csrf
@@ -59,7 +59,9 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $registers->links() }}
+                <div class="d-flex justify-content-md-end justify-content-center mt-5">
+                    {{ $registers->links() }}
+                </div>
             </div>
         </div>
     </section>

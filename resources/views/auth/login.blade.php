@@ -1,7 +1,7 @@
-<x-layouts2>
+<x-layouts2 title="Login">
     <section style="margin-top: 100px">
     <div class="container py-5 col-xxl-6">
-        <h3 class="fw-bold fs-3 mb-3">Halaman Login Admin Pesantren</h3>
+        <h3 class="fw-bold fs-3 mb-3">Login Admin Pesantren</h3>
         <form action="/login" method="POST">
             @csrf
             <div class="form-group mb-3">

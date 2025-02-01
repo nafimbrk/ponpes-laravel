@@ -1,18 +1,20 @@
-<x-layouts>
-    <section id="hero" class="px-0">
-        <div class="container text-center text-white">
+<x-layouts title="About">
+    <section id="hero" class="px-0 d-flex align-items-center" style="height: 100vh; background-color: #282c34;">
+        <div class="container text-center text-white" style="transform: translateY(-10%);">
             <div class="hero-title" data-aos="fade-up">
                 <h1 class="hero-text">Tentang Kami</h1>
                 <p class="fw-semibold fs-5">Pondok Pesantren Modern Al Hijrah dengan Konsep Pendidikan Kaffah</p>
             </div>
         </div>  
     </section>
+    
+    
 
-    <section id="about-intro" class="py-5">
+    <section id="about-intro" class="py-5" style="margin-top: 60px">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col-lg-6 mb-3" data-aos="fade-right">
-                    <img src="{{ asset('assets/images/il-photo-01.png') }}" alt="Tentang Kami" class="img-fluid rounded-3 shadow">
+                    <img src="{{ asset('assets/images/il-photo-01.png') }}" alt="Tentang Kami" class="img-fluid rounded">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <h2 class="fw-bold mb-3">Misi Kami</h2>
