@@ -9,8 +9,8 @@
             <div class="row">
                 @foreach ($photos as $photo)
                 <div class="col-lg-3 col-md-6 col-12 mb-4">
-                    <img src="{{ asset('storage/photo/' . $photo->image) }}" alt="" class="img-fluid rounded-2">
-                    <p class="mt-1 text-dark">{{ $photo->judul }}</p> 
+                    <img src="{{ asset('storage/photo/' . $photo->image) }}" alt="" class="img-fluid rounded-2" style="height: 200px; object-fit: cover; width: 100%;">
+                    <p class="mt-1 text-dark">{{ $photo->judul }}</p>
                 </div>
                 @endforeach
             </div>

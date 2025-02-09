@@ -2,25 +2,25 @@
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
         <h4 class="fw-bold fs-3 mb-3">Buat Artikel</h4>
-        
+
         <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group mb-4">
-            <label for="" class="form-label">Masukkan Judul Kegiatan</label>
+            <label for="" class="form-label">Masukkan Judul Berita</label>
             <input type="text" name="judul" id="" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul') }}">
             @error('judul')
                 <div class="invalid-feedback">
-                    {{ $message }}   
+                    {{ $message }}
                 </div>
             @enderror
         </div>
-        
+
         <div class="form-group mb-4">
-            <label for="" class="form-label">Pilih Photo Kegiatan</label>
+            <label for="" class="form-label">Pilih Photo Berita</label>
             <input type="file" name="image" id="" class="form-control @error('image') is-invalid @enderror">
             @error('image')
                 <div class="invalid-feedback">
-                    {{ $message }}   
+                    {{ $message }}
                 </div>
             @enderror
         </div>
@@ -32,7 +32,7 @@
             </div>
             @error('desc')
                 <div class="text-danger">
-                    {{ $message }}      
+                    {{ $message }}
                 </div>
             @enderror
         </div>

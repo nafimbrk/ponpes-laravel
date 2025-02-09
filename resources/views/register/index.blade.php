@@ -3,7 +3,7 @@
         <div class="container col-xxl-8">
             <h4 class="fs-3 fw-bold mb-3">Data Register Santri</h4>
             <div class="d-flex justify-content-between">
-                <a href="{{ route('register.create') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Buat Artikel</a>
+                <a href="{{ route('register.create') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Tambah Pendaftar</a>
                 <a href="{{ route('register.export') }}" class="btn btn-primary"><i class="bi bi-box-arrow-right"></i>
                     Export</a>
             </div>
@@ -45,7 +45,7 @@
                                     {{ date('d-m-Y', strtotime($register->tanggal_lahir)) }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('register.show', $register->id) }}"><i class="bi bi-eye btn btn-success mb-2"></i></a>
+                                    <a href="{{ route('register.show', $register->id) }}"><i class="bi bi-eye btn btn-success me-1"></i></a>
                                     <a href="{{ route('register.edit', $register->id) }}" class="btn btn-warning me-1"><i class="bi bi-pencil"></i></a>
                                     <form action="{{ route('register.destroy', $register->id) }}" method="POST" class="d-inline">
                                         @csrf

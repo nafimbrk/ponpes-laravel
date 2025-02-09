@@ -2,12 +2,12 @@
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
         <h4 class="fw-bold fs-3 mb-3">Halaman Edit Artikel</h4>
-        
+
         <form action="{{ route('blog.update', $artikel->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group mb-4">
-                <label for="" class="form-label">Masukkan Judul Kegiatan</label>
+                <label for="" class="form-label">Masukkan Judul Berita</label>
                 <input type="text" name="judul" id="" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $artikel->judul) }}">
                 @error('judul')
                     <div class="invalid-feedback">
@@ -15,9 +15,9 @@
                     </div>
                 @enderror
             </div>
-    
+
             <div class="form-group mb-4">
-                <label for="" class="form-label">Pilih Photo Kegiatan</label>
+                <label for="" class="form-label">Pilih Photo Berita</label>
                 <input type="hidden" name="old_image" id="" value="{{ $artikel->image }}">
                 <div>
                     <img src="{{ asset('storage/artikel/' . $artikel->image) }}" class= "col-lg-4 rounded" alt="">
@@ -25,7 +25,7 @@
                 <input type="file" name="image" id="" class="form-control @error('image') is-invalid @enderror">
                 @error('image')
                     <div class="invalid-feedback">
-                        {{ $message }}   
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -36,7 +36,7 @@
                 </textarea>
                 @error('desc')
                     <div class="text-danger">
-                        {{ $message }}   
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
