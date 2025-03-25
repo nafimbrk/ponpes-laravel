@@ -35,7 +35,7 @@ class PhotoController extends Controller
     {
         $rules = [
             'judul' => 'required',
-            'image' => 'required|max:1000|mimes:jpg,jpeg,png,webp'
+            'image' => 'required'
         ];
 
         $messages = [
@@ -102,13 +102,13 @@ class PhotoController extends Controller
             if (Storage::exists('public/photo/' . $request->old_image)) {
                 Storage::delete('public/photo/' . $request->old_image);
             }
-        
+
             // Simpan gambar baru
             $fileName = time() . '.' . $request->image->extension();
             $request->file('image')->storeAs('public/photo', $fileName);
         } else {
             $fileName = $request->old_image;
-        }        
+        }
 
         $photo->update([
             'judul' => $request->judul,
@@ -117,7 +117,7 @@ class PhotoController extends Controller
 
         return redirect(route('photo'))->with('success', 'data photo berhasil diupdate');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */

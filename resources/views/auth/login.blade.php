@@ -1,7 +1,13 @@
 <x-layouts2 title="Login">
     <section style="margin-top: 100px">
     <div class="container py-5 col-xxl-6">
-        <h3 class="fw-bold fs-3 mb-3">Login Admin Pesantren</h3>
+        <h3 class="fw-bold fs-3 mb-3">Login Admin</h3>
+        @if (session()->has('loginError'))
+                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    {{ session('loginError') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         <form action="/login" method="POST">
             @csrf
             <div class="form-group mb-3">

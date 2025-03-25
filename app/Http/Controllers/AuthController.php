@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -22,7 +24,7 @@ class AuthController extends Controller
             return redirect('/dashboard');
         }
 
-        return back()->with('loginError', 'Login Gagal, Periksa Kembali Akun Anda!');
+        return back()->with('loginError', 'Login Gagal, Email Atau Password Password!');
     }
 
     public function logout(Request $request) {

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Exports\RegisterExport;
 use App\Models\Register;
+use Barryvdh\DomPDF\Facade\Pdf;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -97,7 +99,7 @@ class RegisterController extends Controller
 
         Register::create($request->all());
         return redirect()->route('register.index')->with('success', 'Berhasil Register');
-    }   
+    }
 
     public function storeUser(Request $request)
     {
@@ -171,7 +173,7 @@ class RegisterController extends Controller
     {
         $registers = Register::findOrFail($id);
         return view('register.show', compact('registers'));
-    }   
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -248,7 +250,7 @@ class RegisterController extends Controller
         ]);
 
         // $flight = Register::find($id);
-         
+
         // $flight->nama_lengkap = $request->nama_lengkap;
         // $flight->jenis_kelamin = $request->jenis_kelamin;
         // $flight->tempat_lahir = $request->tempat_lahir;
@@ -276,11 +278,11 @@ class RegisterController extends Controller
         // $flight->penghasilan_bulanan_ibu = $request->penghasilan_bulanan_ibu;
         // $flight->program_pesantren = $request->program_pesantren;
         // $flight->no_telp_ortu = $request->no_telp_ortu;
-         
+
         // $flight->save();
 
         $register->update($request->all());
-        
+
         return redirect()->route('register.index')->with('success', 'Data berhasil diupdate');
     }
 
@@ -304,5 +306,14 @@ class RegisterController extends Controller
     public function export()
     {
         return Excel::download(new RegisterExport, 'register.xlsx');
+    }
+
+    public function download()
+    {
+        // Load view dengan data yang disiapkan
+        $pdf = Pdf::loadView('pdf.view');
+
+        // Download file PDF
+        return $pdf->download('nama-file.pdf');
     }
 }

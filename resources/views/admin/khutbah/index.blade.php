@@ -1,10 +1,10 @@
-<x-layouts2 title="Dashboard Blog">
+<x-layouts2 title="Dashboard Khutbah">
     <section class="py-5" style="margin-top: 100px">
         <div class="container col-xxl-8">
 
-            <h4 class="fs-3 fw-bold mb-3">Blog Artikel</h4>
+            <h4 class="fs-3 fw-bold mb-3">Khutbah</h4>
 
-            <a href="{{ route('blog.create') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Buat Artikel</a>
+            <a href="{{ route('khutbah.create') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Buat Khutbah</a>
 
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
@@ -25,26 +25,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php
-                            $no = 1;
-                        @endphp
-                        @foreach ($artikels as $artikel)
+                        @foreach ($khutbahs as $khutbah)
                             <tr>
-                                <td>{{ $no++ }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    <img src="{{ asset('storage/artikel/' . $artikel->image) }}" alt=""
+                                    <img src="{{ asset('storage/khutbah/' . $khutbah->image) }}" alt=""
                                         height="100" width="200" class="rounded">
                                 </td>
                                 <td>
-                                    {{ $artikel->judul }}
+                                    {{ $khutbah->judul }}
                                 </td>
                                 <td>
-                                    {!! Str::limit($artikel->desc,50) !!}
+                                    {!! Str::limit($khutbah->desc,50) !!}
                                 </td>
                                 <td>
-                                    <a href="{{ route('blog.edit', $artikel->id) }}"
+                                    <a href="{{ route('khutbah.edit', $khutbah->id) }}"
                                         class="btn btn-warning me-1"><i class="bi bi-pencil"></i></a>
-                                    <form action="{{ route('blog.destroy', $artikel->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('khutbah.destroy', $khutbah->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         <button type="submit"
                                             onclick="return confirm('Apakah yakin ingin menghapus data?')"
@@ -56,7 +53,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-md-end justify-content-center mt-5">
-                    {{ $artikels->links() }}
+                    {{ $khutbahs->links() }}
                 </div>
             </div>
         </div>

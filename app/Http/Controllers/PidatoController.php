@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\Pidato;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-
-class BlogController extends Controller
+class PidatoController extends Controller
 {
     use ValidatesRequests;
     /**
@@ -17,8 +16,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('admin.blog.index', [
-            'artikels' => Blog::orderBy('id', 'desc')->paginate(5)
+        return view('admin.pidato.index', [
+            'pidatos' => Pidato::orderBy('id', 'desc')->paginate(5)
         ]);
     }
 
@@ -27,7 +26,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create');
+        return view('admin.pidato.create');
     }
 
     /**
@@ -52,16 +51,16 @@ class BlogController extends Controller
         $this->validate($request, $rules, $messages);
 
         $image = $request->file('image');
-        $image->storeAs('public/artikel', $image->hashName());
+        $image->storeAs('public/pidato', $image->hashName());
 
-        Blog::create([
+        Pidato::create([
             'judul' => $request->judul,
             'slug' => Str::slug($request->judul, '-'),
             'image' => $image->hashName(),
             'desc' => $request->desc
         ]);
 
-        return redirect(route('blog'))->with('success', 'data berhasil disimpan');
+        return redirect(route('pidato'))->with('success', 'data berhasil disimpan');
     }
 
     /**
@@ -77,8 +76,8 @@ class BlogController extends Controller
      */
     public function edit(string $id)
     {
-        $artikel = Blog::find($id);
-        return view('admin.blog.edit', ['artikel' => $artikel]);
+        $pidato = Pidato::find($id);
+        return view('admin.pidato.edit', ['pidato' => $pidato]);
     }
 
     /**
@@ -86,7 +85,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $artikel = Blog::find($id);
+        $pidato = Pidato::find($id);
 
         if ($request->hasFile('image')) {
             $fileCheck = 'required|max:1000|mimes:jpg,jpeg,png,webp';
@@ -114,13 +113,13 @@ class BlogController extends Controller
 
             //upload new image
             $image = $request->file('image');
-            $image->storeAs('public/artikel', $image->hashName());
+            $image->storeAs('public/pidato', $image->hashName());
 
             //delete old image
-            Storage::delete('public/artikel/'.$artikel->image);
+            Storage::delete('public/pidato/'.$pidato->image);
 
             //update product with new image
-            $artikel->update([
+            $pidato->update([
                 'judul' => $request->judul,
                 'slug' => Str::slug($request->judul, '-'),
                 'image' => $image->hashName(),
@@ -130,14 +129,14 @@ class BlogController extends Controller
         } else {
 
             //update product without image
-            $artikel->update([
+            $pidato->update([
                 'judul' => $request->judul,
                 'slug' => Str::slug($request->judul, '-'),
                 'desc' => $request->desc
             ]);
         }
 
-        return redirect(route('blog'))->with('success', 'data berhasil diupdate');
+        return redirect(route('pidato'))->with('success', 'data berhasil diupdate');
     }
 
     /**
@@ -145,14 +144,14 @@ class BlogController extends Controller
      */
     public function destroy(string $id)
     {
-        $artikel = Blog::find($id);
+        $pidato = Pidato::find($id);
 
         //delete image
-        Storage::delete('public/artikel/'. $artikel->image);
+        Storage::delete('public/pidato/'. $pidato->image);
 
-        //delete artikel
-        $artikel->delete();
+        //delete pidato
+        $pidato->delete();
 
-        return redirect(route('blog'))->with('success', 'data berhasil dihapus');
+        return redirect(route('pidato'))->with('success', 'data berhasil dihapus');
     }
 }

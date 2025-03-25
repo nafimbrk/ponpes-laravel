@@ -1,19 +1,29 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VideoController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PidatoController;
+use App\Http\Controllers\KhutbahController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', [AppController::class, 'index']);
 
-Route::get('/berita', [AppController::class, 'berita']);
+Route::get('/blog', [AppController::class, 'blog']);
 
-Route::get('/berita/{slug}', [AppController::class, 'isiBerita']);
+Route::get('/blog/{slug}', [AppController::class, 'isiBlog']);
+
+Route::get('/khutbah', [AppController::class, 'khutbah']);
+
+Route::get('/khutbah/{slug}', [AppController::class, 'isiKhutbah']);
+
+Route::get('/pidato', [AppController::class, 'pidato']);
+
+Route::get('/pidato/{slug}', [AppController::class, 'isiPidato']);
 
 Route::get('/foto', [AppController::class, 'foto']);
 
@@ -37,12 +47,26 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/blog', [BlogController::class, 'index'])->name('blog')->middleware('auth');
-Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
-Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
-Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit')->middleware('auth');
-Route::put('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update')->middleware('auth');
-Route::post('/blog/destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy')->middleware('auth');
+Route::get('/blogD', [BlogController::class, 'index'])->name('blog')->middleware('auth');
+Route::get('/blogD/create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
+Route::post('/blogD/store', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
+Route::get('/blogD/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit')->middleware('auth');
+Route::put('/blogD/update/{id}', [BlogController::class, 'update'])->name('blog.update')->middleware('auth');
+Route::post('/blogD/destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy')->middleware('auth');
+
+Route::get('/khutbahD', [KhutbahController::class, 'index'])->name('khutbah')->middleware('auth');
+Route::get('/khutbahD/create', [KhutbahController::class, 'create'])->name('khutbah.create')->middleware('auth');
+Route::post('/khutbahD/store', [KhutbahController::class, 'store'])->name('khutbah.store')->middleware('auth');
+Route::get('/khutbahD/edit/{id}', [KhutbahController::class, 'edit'])->name('khutbah.edit')->middleware('auth');
+Route::put('/khutbahD/update/{id}', [KhutbahController::class, 'update'])->name('khutbah.update')->middleware('auth');
+Route::post('/khutbahD/destroy/{id}', [KhutbahController::class, 'destroy'])->name('khutbah.destroy')->middleware('auth');
+
+Route::get('/pidatoD', [PidatoController::class, 'index'])->name('pidato')->middleware('auth');
+Route::get('/pidatoD/create', [PidatoController::class, 'create'])->name('pidato.create')->middleware('auth');
+Route::post('/pidatoD/store', [PidatoController::class, 'store'])->name('pidato.store')->middleware('auth');
+Route::get('/pidatoD/edit/{id}', [PidatoController::class, 'edit'])->name('pidato.edit')->middleware('auth');
+Route::put('/pidatoD/update/{id}', [PidatoController::class, 'update'])->name('pidato.update')->middleware('auth');
+Route::post('/pidatoD/destroy/{id}', [PidatoController::class, 'destroy'])->name('pidato.destroy')->middleware('auth');
 
 Route::get('/photo', [PhotoController::class, 'index'])->name('photo')->middleware('auth');
 Route::post('/photo/store', [PhotoController::class, 'store'])->name('photo.store')->middleware('auth');
@@ -65,3 +89,8 @@ Route::put('/register/update/{id}', [RegisterController::class, 'update'])->name
 Route::delete('/register/destroy/{id}', [RegisterController::class, 'destroy'])->name('register.destroy');
 Route::get('/register/{id}', [RegisterController::class, 'show'])->name('register.show')->middleware('auth');
 Route::get('/export', [RegisterController::class, 'export'])->name('register.export')->middleware('auth');
+Route::get('/pendaftaran', function () {
+    return view('register.pendaftaran');
+});
+
+Route::get('/download', [RegisterController::class, 'download'])->name('download.pdf');

@@ -9,7 +9,7 @@
 
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                    <strong>Informasi</strong> {{ session('success') }}
+                    {{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
@@ -78,7 +78,7 @@
                                                 @csrf
                                                 <input type="hidden" name="id_video" id=""
                                                     value="{{ $item->id }}">
-                                                
+
                                                 <div class="form-group mb-3">
                                                     <label for="">Judul</label>
                                                     <input type="text" name="judul" id=""

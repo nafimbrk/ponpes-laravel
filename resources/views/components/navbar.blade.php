@@ -1,4 +1,4 @@
-<nav id="mainNavbar" class="navbar navbar-expand-lg py-3 fixed-top 
+<nav id="mainNavbar" class="navbar navbar-expand-lg py-3 fixed-top
     {{ Request::segment(1) == '' ? 'navbar-dark' : 'bg-white shadow navbar-light' }}">
     <div class="container">
         <a class="navbar-brand" href="/">
@@ -13,15 +13,32 @@
                 <li class="nav-item">
                     <a href="/" class="nav-link active" aria-current="page">Beranda</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/berita" class="nav-link active">Berita</a>
+                <!-- Dropdown Manual -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="dropdownToggle">Pilih</a>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a class="dropdown-item" href="/blog">Blog</a></li>
+                        <li><a class="dropdown-item" href="/khutbah">Khutbah</a></li>
+                        <li><a class="dropdown-item" href="/pidato">Pidato</a></li>
+                    </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="/foto" class="nav-link active">Foto</a>
                 </li>
                 <li class="nav-item">
                     <a href="/videos" class="nav-link active">Video</a>
                 </li>
+                @auth
+                <li class="nav-item">
+                    <a href="{{ route('register.create') }}" class="nav-link active">Pendaftaran</a>
+                </li>
+                @endauth
+                @guest
+                <li class="nav-item">
+                    <a href="{{ url('pendaftaran') }}" class="nav-link active">Pendaftaran</a>
+                </li>
+                @endguest
                 <li class="nav-item">
                     <a href="/about" class="nav-link active">About</a>
                 </li>
@@ -42,7 +59,7 @@
                         <button type="submit" class="btn btn-danger logout">Logout</button>
                     </form>
                 @else
-                    <a href="{{ route('register.create.user') }}" class="btn btn-danger">Daftar</a>
+                    <a href="{{ route('login') }}" class="btn btn-danger">Login</a>
                 @endauth
             </div>
         </div>
@@ -104,7 +121,7 @@
 #mainNavbar {
     /* outline: 2px solid red; */
 }
-    
+
     @media (max-width: 991px) { /* Berlaku untuk layar mobile */
     .d-flex {
         flex-direction: column; /* Membalikkan urutan elemen */
@@ -124,6 +141,144 @@
         margin-left: 16px;
     }
 }
+
+
+
+
+/* Pastikan dropdown menu muncul sepenuhnya */
+.dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0;
+    z-index: 1050;
+    display: none; /* Default disembunyikan */
+    min-width: 150px; /* Atur lebar minimal */
+}
+
+/* Tampilkan dropdown dengan klik */
+.show > .dropdown-menu {
+    display: block;
+}
+
+/* Perbaiki jika dropdown terlalu ke kiri */
+@media (min-width: 992px) {
+    .navbar .dropdown-menu {
+        transform: translateX(-50%);
+        left: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styling dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    padding: 8px 12px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f8f9fa;
+}
+
+/* Agar dropdown tetap pada posisi relatif terhadap parent */
+.nav-item.dropdown {
+    position: relative;
+}
+
+/* Tampilkan dropdown jika aktif */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Responsif agar dropdown tidak terpotong */
+@media (max-width: 991px) {
+    .dropdown-menu {
+        position: absolute !important; /* Pastikan dropdown tetap berada di bawah */
+        left: 0 !important;  /* Posisikan dropdown agar tetap dekat dengan tombol */
+        right: auto !important; /* Hindari terlalu ke kanan */
+        width: max-content; /* Sesuaikan lebar dropdown dengan isinya */
+        min-width: 150px; /* Beri batas minimum lebar */
+        background-color: white; /* Pastikan tetap terlihat */
+        border-radius: 5px; /* Agar lebih rapi */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan sedikit bayangan */
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+}
+
+
+
+/* Navbar harus berada di atas hero */
+.navbar {
+    z-index: 1050; /* Pastikan navbar di atas elemen lain */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Pastikan hero section tidak menutupi navbar */
+.hero-section {
+    position: relative;
+    z-index: 1; /* Pastikan lebih rendah dari navbar */
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    min-width: 150px;
+    z-index: 1100; /* Lebih tinggi dari navbar */
+    overflow: visible; /* Pastikan dropdown tidak terpotong */
+}
+
+/* Jika dropdown terlalu panjang, tambahkan batasan tinggi */
+.dropdown-menu.show {
+    display: block;
+    max-height: 200px; /* Bisa disesuaikan */
+    overflow-y: auto;
+}
+
+/* Navbar tidak boleh bisa di-scroll */
+.navbar.fixed-top {
+    overflow: visible !important;
+}
+
 
 </style>
 
@@ -146,5 +301,27 @@
             });
         }
     });
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdownToggle = document.getElementById("dropdownToggle");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    dropdownToggle.addEventListener("click", function (event) {
+        event.preventDefault(); // Mencegah link reload halaman
+        dropdownMenu.classList.toggle("show");
+    });
+
+    // Menutup dropdown jika klik di luar dropdown
+    document.addEventListener("click", function (event) {
+        if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove("show");
+        }
+    });
+});
+
 </script>
 

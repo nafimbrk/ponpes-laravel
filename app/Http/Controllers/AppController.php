@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Khutbah;
 use App\Models\Photo;
+use App\Models\Pidato;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -19,18 +21,48 @@ class AppController extends Controller
         ]);
     }
 
-    public function berita()
+    public function blog()
     {
-        return view('berita.berita', [
+        return view('blog.blog', [
             'artikels' => Blog::orderBy('id', 'desc')->paginate(6)
         ]);
     }
 
-    public function isiBerita($slug)
+    public function isiBlog($slug)
     {
         $artikel = Blog::where('slug', $slug)->firstOrFail();
-        return view('berita.isi-berita', [
+        return view('blog.isi-blog', [
             'artikel' => $artikel
+        ]);
+    }
+
+    public function khutbah()
+    {
+        return view('khutbah.khutbah', [
+            'khutbahs' => Khutbah::orderBy('id', 'desc')->paginate(6)
+        ]);
+    }
+
+    public function isiKhutbah($slug)
+    {
+        $khutbah = Khutbah::where('slug', $slug)->firstOrFail();
+        return view('khutbah.isi-khutbah', [
+            'khutbah' => $khutbah
+        ]);
+    }
+
+    public function pidato()
+    {
+        return view('pidato.pidato', [
+            'pidatos' => Pidato::orderBy('id', 'desc')->paginate(6)
+        ]);
+    }
+
+    public function isiPidato($slug)
+    {
+        $pidato = Pidato::where('slug', $slug)->firstOrFail();
+        return view('pidato.isi-pidato', [
+            'pidato' => $pidato
         ]);
     }
 

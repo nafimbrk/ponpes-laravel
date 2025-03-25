@@ -18,16 +18,16 @@
                     <h5 class="fw-bold mb-3">Follow Kami</h5>
                     <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
                         <a href="https://www.facebook.com/" target="_blank">
-                            <img src="{{ asset('assets/logo/facebook.webp') }}" alt="Facebook" width="24">
+                            <i class="fa-brands fa-tiktok"></i>
                         </a>
                         <a href="https://www.tiktok.com/" target="_blank">
-                            <img src="{{ asset('assets/logo/tiktok.webp') }}" alt="TikTok" width="24">
+                            <i class="fa-brands fa-facebook-f"></i>
                         </a>
                         <a href="https://www.instagram.com/" target="_blank">
-                            <img src="{{ asset('assets/logo/instagram.webp') }}" alt="Instagram" width="30">
+                            <i class="fa-brands fa-square-instagram"></i>
                         </a>
                         <a href="https://www.youtube.com/" target="_blank">
-                            <img src="{{ asset('assets/logo/youtube.webp') }}" alt="YouTube" width="40">
+                            <i class="fa-brands fa-youtube"></i>
                         </a>
                     </div>
                 </div>

@@ -1008,7 +1008,7 @@
         //         editor.on('text-change', function() {
         //             quillEditor.value = editor.root.innerHTML;
         //         });
-    
+
         //         quillEditor.addEventListener('input', function() {
         //             editor.root.innerHTML = quillEditor.value;
         //         });

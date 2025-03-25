@@ -1,14 +1,14 @@
 <x-layouts2 title="Dashboard Foto">
     <section class="py-5" style="margin-top: 100px">
     <div class="container col-xxl-8">
-          
+
         <h4 class="fs-3 fw-bold mb-3">Photo Kegiatan</h4>
 
         <a href="{{ route('blog.create') }}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal"><i class="bi bi-plus-lg"></i> Upload Photo</a>
 
         @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                <strong>Informasi</strong> {{ session('success') }}
+                {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
@@ -43,7 +43,12 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>
-                                <img src="{{ asset('storage/photo/' . $item->image) }}" alt="" height="100" width="200" class="rounded">
+                                {{-- <img src="{{ asset('storage/photo/' . $item->image) }}" alt="" height="100" width="200" class="rounded"> --}}
+                                <video width="320" height="240" controls poster="/assets/images/dashboard.webp">
+                                    <source src="{{ asset('storage/photo/' . $item->image) }}" type="video/mp4">
+                                  Your browser does not support the video tag.
+                                  </video>
+
                             </td>
                             <td>
                                 {{ $item->judul }}
@@ -66,9 +71,9 @@
                                     <div class="modal-body">
                                         <form action="{{ route('photo.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
-                                            
+
                                             <input type="hidden" name="id_photo" value="{{ $item->id }}">
-                                            
+
                                             <div class="form-group mb-3">
                                                 <label for="">Pilih Photo</label>
                                                 <div class="col-lg-4 mb-3">
@@ -77,19 +82,19 @@
                                                 <input type="hidden" name="old_image" value="{{ $item->image }}">
                                                 <input type="file" name="image" class="form-control">
                                             </div>
-                                            
+
                                             <div class="form-group mb-3">
                                                 <label for="">Nama Kegiatan</label>
                                                 <input type="text" name="judul" class="form-control" value="{{ $item->judul }}">
                                             </div>
-                                            
+
                                             <button type="submit" class="btn btn-success">Update</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     @endforeach
                 </tbody>
             </table>
