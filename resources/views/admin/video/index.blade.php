@@ -47,11 +47,7 @@
                                     {{ $item->judul }}
                                 </td>
                                 <td>
-                                    <iframe width="300"
-                                        src="https://www.youtube.com/embed/{{ $item->youtube_code }}"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded"></iframe>
+                                    <video src="{{ url('/stream/video/' . $item->video) }}" width="300" class="rounded" controls></video>
                                 </td>
                                 <td>
                                     <a href="#" class="btn btn-warning me-1" data-bs-target="#editVideo{{ $item->id }}"
@@ -74,7 +70,7 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('video.update', $item->id) }}" method="POST">
+                                            <form action="{{ route('video.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="id_video" id=""
                                                     value="{{ $item->id }}">
@@ -85,9 +81,11 @@
                                                         class="form-control" value="{{ $item->judul }}">
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <label for="">Youtube Code</label>
-                                                    <input type="text" name="youtube_code" id=""
-                                                        class="form-control" value="{{ $item->youtube_code }}">
+
+                                                    <label for="">Video</label>
+                                                    <video src="{{ url('/stream/video/' . $item->video) }}" width="250" class="rounded mb-2" controls></video>
+                                                    <input type="file" name="video" id=""
+                                                        class="form-control" value="{{ $item->video }}">
                                                 </div>
                                                 <button type="submit" class="btn btn-success">Update</button>
                                             </form>
@@ -113,15 +111,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('video.store') }}" method="POST">
+                    <form action="{{ route('video.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">Judul</label>
                             <input type="text" name="judul" id="" class="form-control ">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="">Youtube Code</label>
-                            <input type="text" name="youtube_code" id="" class="form-control ">
+                            <label for="">Video</label>
+                            <input type="file" name="video" id="" class="form-control ">
                         </div>
                         <button type="submit" class="btn btn-success">Simpan</button>
                     </form>

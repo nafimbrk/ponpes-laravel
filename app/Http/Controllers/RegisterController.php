@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\RegisterExport;
 use App\Models\Register;
-use Barryvdh\DomPDF\Facade\Pdf;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use GuzzleHttp\Promise\Create;
+use App\Exports\RegisterExport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Routing\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
@@ -310,10 +311,8 @@ class RegisterController extends Controller
 
     public function download()
     {
-        // Load view dengan data yang disiapkan
-        $pdf = Pdf::loadView('pdf.view');
+        $filePath = storage_path('app/public/pdf/brosur.pdf');
 
-        // Download file PDF
-        return $pdf->download('nama-file.pdf');
+        return response()->download($filePath);
     }
 }

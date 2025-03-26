@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('youtube_code');
+            $table->string('video');
             $table->timestamps();
         });
     }

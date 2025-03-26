@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Video;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
@@ -34,19 +35,22 @@ class VideoController extends Controller
     {
         $rules = [
             'judul' => 'required',
-            'youtube_code' => 'required'
+            'video' => 'required'
         ];
 
         $messages = [
-            'judul.required' => 'Judul wajib diisi',
-            'youtube_code.required' => 'Code Youtube wajib diisi'
+            'judul.required' => 'judul wajib diisi',
+            'video.required' => 'video wajib diisi'
         ];
 
         $this->validate($request, $rules, $messages);
 
-        Video::create([ 
+        $video = $request->video->hashName();
+        $request->file('video')->storeAs('public/video', $video);
+
+        Video::create([
             'judul' => $request->judul,
-            'youtube_code' => $request->youtube_code
+            'video' => $video
         ]);
 
         return redirect(route('video'))->with('success', 'data video berhasil disimpan');
@@ -73,24 +77,43 @@ class VideoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $video = Video::find($id);
+        $videos = Video::find($id);
 
         $rules = [
-            'judul' => 'required',
-            'youtube_code' => 'required'
+            'judul' => 'required'
         ];
 
         $messages = [
-            'judul.required' => 'Judul wajib diisi',
-            'youtube_code.required' => 'Code Youtube wajib diisi'
+            'judul.required' => 'judul wajib diisi'
         ];
 
         $this->validate($request, $rules, $messages);
 
-        $video->update([ 
-            'judul' => $request->judul,
-            'youtube_code' => $request->youtube_code
-        ]);
+
+
+if ($request->hasFile('video')) {
+
+    $video = $request->file('video');
+    $video->storeAs('public/video', $video->hashName());
+
+    Storage::delete('public/video/'.$videos->video);
+
+    $videos->update([
+        'judul' => $request->judul,
+        'video' => $video->hashName()
+    ]);
+
+} else {
+
+    $videos->update([
+        'judul' => $request->judul
+    ]);
+}
+
+
+
+
+
 
         return redirect(route('video'))->with('success', 'data video berhasil diupdate');
     }
@@ -101,7 +124,9 @@ class VideoController extends Controller
     public function destroy(string $id)
     {
         $video = Video::find($id);
- 
+
+        Storage::delete('public/video/'. $video->video);
+
         $video->delete();
 
         return redirect(route('video'))->with('success', 'data video berhasil dihapus');

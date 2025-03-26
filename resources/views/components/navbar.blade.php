@@ -13,11 +13,13 @@
                 <li class="nav-item">
                     <a href="/" class="nav-link active" aria-current="page">Beranda</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/blog" class="nav-link active" aria-current="page">Blog</a>
+                </li>
                 <!-- Dropdown Manual -->
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="dropdownToggle">Pilih</a>
+                    <a href="#" class="nav-link dropdown-toggle" id="dropdownToggle">Menu</a>
                     <ul class="dropdown-menu" id="dropdownMenu">
-                        <li><a class="dropdown-item" href="/blog">Blog</a></li>
                         <li><a class="dropdown-item" href="/khutbah">Khutbah</a></li>
                         <li><a class="dropdown-item" href="/pidato">Pidato</a></li>
                     </ul>

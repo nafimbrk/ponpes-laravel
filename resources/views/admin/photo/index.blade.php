@@ -43,12 +43,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>
-                                {{-- <img src="{{ asset('storage/photo/' . $item->image) }}" alt="" height="100" width="200" class="rounded"> --}}
-                                <video width="320" height="240" controls poster="/assets/images/dashboard.webp">
-                                    <source src="{{ asset('storage/photo/' . $item->image) }}" type="video/mp4">
-                                  Your browser does not support the video tag.
-                                  </video>
-
+                                <img src="{{ asset('storage/photo/' . $item->image) }}" alt="" height="100" width="200" class="rounded">
                             </td>
                             <td>
                                 {{ $item->judul }}

@@ -94,3 +94,21 @@ Route::get('/pendaftaran', function () {
 });
 
 Route::get('/download', [RegisterController::class, 'download'])->name('download.pdf');
+
+Route::get('/stream/video/{filename}', function ($filename) {
+    $path = storage_path('app/public/video/' . $filename);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->stream(function () use ($path) {
+        $stream = fopen($path, 'rb');
+        fpassthru($stream);
+        fclose($stream);
+    }, 200, [
+        'Content-Type' => 'video/mp4',
+        'Accept-Ranges' => 'bytes',
+        'Cache-Control' => 'public, max-age=31536000',
+    ]);
+});
