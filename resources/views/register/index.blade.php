@@ -10,7 +10,7 @@
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
                     <strong>Informasi</strong> {{ session('success') }}
-                    <button type="button" cl    ass="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
             <div class="table-responsive my-3">

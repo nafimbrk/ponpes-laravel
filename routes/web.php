@@ -44,6 +44,8 @@ Route::get('/test', function () {
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/register/ashdakhdjdk', [AuthController::class, 'registerView']);
+Route::post('/registerr', [AuthController::class, 'register']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
